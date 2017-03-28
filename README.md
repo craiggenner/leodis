@@ -14,7 +14,7 @@ Switch to the `/vagrant/puppet` folder and run `make test`.
 
 This will run puppet smoke and spec tests. You can run individual tests with `make smoketest` and `make raketest`.
 
-(The results of the rake test produces a rspec.xml which is in the junit format for tools that support this output)
+(The results of the rake test produces a `rspec.xml` which is in the junit format for tools that support this output)
 
 ## Applying
 
@@ -26,4 +26,4 @@ This project comes with server spec tests configured to test the results of the 
 
 To run these tests checkout the project, switch to the `puppet` folder and run `make serverspec`.
 
-(As before the test produces a rspec.xml)
+(As before the test produces a `rspec.xml`)
