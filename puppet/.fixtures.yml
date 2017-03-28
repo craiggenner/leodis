@@ -1,0 +1,7 @@
+fixtures:
+  symlinks:
+    leodis: "#{source_dir}/dist/leodis"
+  forge_modules:
+    apache: "puppetlabs/apache"
+    concat: "puppetlabs/concat"
+    stdlib: "puppetlabs/stdlib"

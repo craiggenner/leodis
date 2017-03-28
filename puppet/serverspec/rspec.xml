@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="20" failures="0" errors="0" time="0.310792" timestamp="2017-03-28T23:12:16+00:00">
+  <!-- Randomized with seed 32054 -->
+  <properties/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/&quot; should exist" file="./spec/files_spec.rb" time="0.112943"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/&quot; should be directory" file="./spec/files_spec.rb" time="0.021134"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should exist" file="./spec/files_spec.rb" time="0.003725"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should be file" file="./spec/files_spec.rb" time="0.004414"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;VirtualHost *:80&quot;" file="./spec/files_spec.rb" time="0.006918"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerName www.leodis.ac.uk&quot;" file="./spec/files_spec.rb" time="0.005576"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerAlias leodis.ac.uk&quot;" file="./spec/files_spec.rb" time="0.006326"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerAlias leodis.co.uk&quot;" file="./spec/files_spec.rb" time="0.005311"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerAlias www.leodis.co.uk&quot;" file="./spec/files_spec.rb" time="0.005312"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerAlias leodis.net&quot;" file="./spec/files_spec.rb" time="0.006941"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ServerAlias www.leodis.net&quot;" file="./spec/files_spec.rb" time="0.008669"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ProxyPass / http://localhost:1337/&quot;" file="./spec/files_spec.rb" time="0.005176"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot; should contain &quot;ProxyPassReverse / http://localhost:1337/&quot;" file="./spec/files_spec.rb" time="0.005964"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-enabled/25-leodis.ac.uk.conf&quot; should exist" file="./spec/files_spec.rb" time="0.003687"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-enabled/25-leodis.ac.uk.conf&quot; should be symlink" file="./spec/files_spec.rb" time="0.004240"/>
+  <testcase classname="spec.files_spec" name="File &quot;/etc/apache2/sites-enabled/25-leodis.ac.uk.conf&quot; should be linked to &quot;/etc/apache2/sites-available/25-leodis.ac.uk.conf&quot;" file="./spec/files_spec.rb" time="0.006192"/>
+  <testcase classname="spec.packages_spec" name="Package &quot;apache2&quot; should be installed" file="./spec/packages_spec.rb" time="0.033099"/>
+  <testcase classname="spec.services_spec" name="Service &quot;apache2&quot; should be enabled" file="./spec/services_spec.rb" time="0.006956"/>
+  <testcase classname="spec.services_spec" name="Service &quot;apache2&quot; should be running" file="./spec/services_spec.rb" time="0.034811"/>
+  <testcase classname="spec.services_spec" name="Port &quot;80&quot; should be listening" file="./spec/services_spec.rb" time="0.006912"/>
+</testsuite>
