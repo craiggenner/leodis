@@ -1,0 +1,13 @@
+*.swp
+.vagrant
+
+puppet/.librarian
+puppet/.out
+puppet/.tmp
+puppet/Puppetfile.lock
+puppet/modules
+puppet/pkg
+puppet/rspec.xml
+puppet/spec/fixtures/module
+puppet/vendor
+puppet/serverspec/vendor
