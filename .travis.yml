@@ -1,7 +1,7 @@
 ---
 sudo: required
 language: ruby
-script: "make -C puppet test"
+script: "make -C puppet testtravis"
 matrix:
   fast_finish: true
   include:

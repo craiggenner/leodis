@@ -2,9 +2,13 @@
 
 ALL_SMOKE_TESTS := $(shell find spec/tests -type f)
 
-prep:
-	@echo "Installing smoketest dependencies ..."
+prepos:
+	@echo "Installing OS dependencies ..."
 	@sudo apt-get install --no-install-recommends -y bundler puppet
+	@echo "Done"
+
+prep:
+	@echo "Installing dependencies ..."
 	@bundle install --path=vendor
 	@bundle exec rake clean
 	@bundle exec rake spec_clean
@@ -13,6 +17,18 @@ prep:
 	@rm -rf .tmp/
 	@rm -rf .librarian/
 	@bundle exec rake spec_prep
+	@echo "Done"
+
+clean:
+	@echo "Cleaning up"
+	@rm -rf vendor
+	@echo "Done"
+
+cleanos:
+	@echo "Cleaning OS dependencies ..."
+	@sudo apt-get remove --purge -y bundler puppet
+	@sudo apt-get autoremove --purge -y
+	@echo "Done"
 
 $(ALL_SMOKE_TESTS):
 	@echo Running $@
@@ -20,32 +36,24 @@ $(ALL_SMOKE_TESTS):
 	FACTER_smoketesting=true FACTER_lsbmajdistrelease=14 FACTER_operatingsystemrelease=14.04 FACTER_operatingsystem=Ubuntu FACTER_osfamily=Debian puppet apply --noop --modulepath spec/fixtures/modules/ $@
 	@echo
 
-smoketest: prep $(ALL_SMOKE_TESTS)
-	@echo "Cleaning up"
-	@rm -rf vendor
-	@sudo apt-get remove --purge -y bundler puppet
-	@sudo apt-get autoremove --purge -y
-	@echo "Done"
+smoketest: prepos prep $(ALL_SMOKE_TESTS) clean cleanos
 
-raketest:
-	@echo "Installing rake test dependencies ..."
-	@sudo apt-get install --no-install-recommends -y bundler puppet
-	@bundle install --path=vendor
-	@bundle exec rake clean
-	@bundle exec rake spec_clean
-	@rm -rf modules
-	@rm -f Puppetfile.lock
-	@rm -rf .tmp/
-	@rm -rf .librarian/
+raketest: prepos prep
+	@echo "Running rake tests"
 	bundle exec rake test
 	@echo "Done"
-	@echo "Cleaning up"
-	@rm -rf vendor
-	@sudo apt-get remove --purge -y bundler puppet
-	@sudo apt-get autoremove --purge -y
+	@make clean
+	@make cleanos
+
+raketesttravis: prep
+	@echo "Running rake tests"
+	bundle exec rake test
 	@echo "Done"
+	@make clean
 
 test: smoketest raketest
+
+testtravis: raketesttravis
 
 puppet:
 	@sudo apt-get install --no-install-recommends -y bundler puppet git
@@ -81,4 +89,4 @@ serverspec:
 	@sudo apt-get autoremove --purge -y
 	@echo "Done"
 
-.PHONY: prep smoketest raketest test puppet serverspec $(ALL_SMOKE_TESTS)
+.PHONY: prepos prep clean cleanos smoketest raketest raketesttravis test testtravis puppet serverspec $(ALL_SMOKE_TESTS)
