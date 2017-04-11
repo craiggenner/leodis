@@ -46,13 +46,10 @@ raketest: prepos prep
 	@make cleanos
 
 raketesttravis: prep
-	@sudo apt-get install --no-install-recommends -y puppet
 	@echo "Running rake tests"
 	bundle exec rake test
 	@echo "Done"
 	@make clean
-	@sudo apt-get remove --purge -y puppet
-	@sudo apt-get autoremove --purge -y
 
 test: smoketest raketest
 

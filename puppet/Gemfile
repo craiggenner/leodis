@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+if ENV.key?('PUPPET_GEM_VERSION')
+  puppetversion = "= #{ENV['PUPPET_GEM_VERSION']}"
+end
+
 gem "serverspec"
 gem "net-ssh", "2.7"
 gem "rake"
